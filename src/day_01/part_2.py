@@ -1,14 +1,6 @@
 import os
 import re
-
-# Change the working directory
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-
-# Read the input file
-with open('input.txt', 'r') as file:
-    lines = file.readlines()
-
-sum = 0
+from common import file_reader
 
 def getCalibrationValue(input_string):
     pattern = re.compile(r'(?=(one|two|three|four|five|six|seven|eight|nine|\d))', re.IGNORECASE)
@@ -27,9 +19,12 @@ def getCalibrationValue(input_string):
     print(f'{input_string}: {first_match} + {last_match} = {concatenated_result}')
     return concatenated_result
 
-# Iterate through each line and add the calibration value to the sum
-for line in lines:
-    sum += getCalibrationValue(line)
+def solve():
+    sum = 0
 
-# Print the sum
-print(sum)
+    # Iterate through each line and add the calibration value to the sum
+    for line in file_reader.read_input_file(__file__):
+        sum += getCalibrationValue(line)
+
+    # Print the sum
+    print(sum)
