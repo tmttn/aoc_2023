@@ -5,6 +5,7 @@
     """
 import os
 
+
 def read_input_file(file):
     """
     Reads the contents of the input file.
@@ -19,5 +20,5 @@ def read_input_file(file):
     os.chdir(os.path.dirname(os.path.abspath(file)))
 
     # Read the input file
-    with open('input.txt', 'r', encoding="utf-8") as file:
+    with open("input.txt", "r", encoding="utf-8") as file:
         return file.readlines()

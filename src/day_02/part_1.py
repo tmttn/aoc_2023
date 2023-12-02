@@ -5,7 +5,8 @@ parsing the game data, and checking if the draws are possible for a given set of
 The result is then printed to the console.
 """
 from common import file_reader
-from .game_util import parseGame
+from .game_util import parse_game
+
 
 def solve():
     """Solves the game and prints the result.
@@ -17,8 +18,8 @@ def solve():
     result = 0
 
     for line in file_reader.read_input_file(__file__):
-        game = parseGame(line)
-        
+        game = parse_game(line)
+
         game_possible = True
 
         # Check if the game's draws are possible for a bag
@@ -29,11 +30,11 @@ def solve():
             blue_marbles = 0
 
             for marble in draw:
-                if marble.color == 'red':
+                if marble.color == "red":
                     red_marbles += marble.number
-                elif marble.color == 'green':
+                elif marble.color == "green":
                     green_marbles += marble.number
-                elif marble.color == 'blue':
+                elif marble.color == "blue":
                     blue_marbles += marble.number
 
             if red_marbles > 12 or green_marbles > 13 or blue_marbles > 14:
