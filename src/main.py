@@ -43,8 +43,4 @@ except ModuleNotFoundError:
     sys.exit(1)
     
 # Solve the puzzle
-try:
-    module.solve()
-except AttributeError:
-    print(f"Function solve() not found in module {module_name}.")
-    sys.exit(1)
+module.solve()
